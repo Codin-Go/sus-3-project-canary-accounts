@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Landing Inner Index.html </title>
+</head>
+<body>
+    <!-- <p> Today's whether is  {{weather_data.0.weather}}</p>
+    <p> Temperature is  {{weather_data.0.temperature}}</p> -->
+
+    <p> Today's whether is  {{weather}}</p>
+    <p> Temperature is  {{temperature}}</p>
+
+    <p>
+        {{top_average}}
+        <ol>
+            <li>{{top_average.0}}</li>
+            <li>{{top_average.1}}</li>
+            <li>{{top_average.2}}</li>
+        </ol>
+    </p>
+
+    <p>
+        {{top_hitter}}
+        <ol>
+            <li>{{top_hitter.0}}</li>
+            <li>{{top_hitter.1}}</li>
+            <li>{{top_hitter.0.name}}</li>
+        </ol>
+    </p>
+
+    <p>
+        <ol>
+            {% for top in top_average %}
+            <li>{{top}}</li>
+            {% lorem %}
+            {% endfor %}    
+        </ol>
+    </p>
+
+    <p>
+        {% if not temperature %}
+        don't know
+        
+        {% elif temperature < 10 %}
+        {{temperature}} is cold!
+
+        {% elif temperature > 20 %}
+        {{temperature}} is hot!
+
+        {% else %}
+        {{ temperature }} is good 
+
+        {% endif %}
+    </p>
+
+
+    {{ top_average }} of {{ top_average|length }}<br> 
+    <p>
+        <ol>
+            <li>{{top_average.0}}</li>
+            <li>{{top_average.1}}</li>
+            <li>{{top_average.2}}</li>
+        </ol>
+    </p>
+    
+</body>
+</html>
